@@ -1,8 +1,10 @@
 import './App.css';
 import Alert from './Components/Alert';
+import About from './Components/About';
 import Navbar from './Components/Navbar';
 import Textform from './Components/Textform';
 import React,{ useState } from 'react';
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 
 
 function App() {
@@ -35,11 +37,15 @@ function App() {
 
   return (
     <>
-    <Navbar title="Text Utils" about ="About" mode={mode} toggleMode={toggleMode} />
-    <Alert user="Mukhul" alert ={alert}/>
-    <div className='container my-3' >
-    <Textform showAlert ={showAlert} heading ="Enter text here to play around :" />
-    </div>
+     <Router>
+     <Navbar title="Text Utils" about ="About" mode={mode} toggleMode={toggleMode} href='/' />
+     <Alert user="Mukhul" alert ={alert}/>
+        <Routes>
+          <Route exact path="/" element={<Textform showAlert ={showAlert} heading ="Enter text here to play around :" /> }/>
+          <Route exact path="/about" element={<About to='/about'/>}/>
+        </Routes>
+      </Router>
+    
     </>
   );
 }

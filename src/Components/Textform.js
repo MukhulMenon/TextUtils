@@ -33,6 +33,7 @@ function Textform(props) {
   return (
     <div>
       <form>
+        <div className='container'>
         <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">{props.heading}</label>
         <textarea type="box" className='form-control' id='my-box' onChange={handleOnChange} value={text} rows="8"/>
@@ -45,7 +46,7 @@ function Textform(props) {
 
         <div className='container my-3'>
             <h4>Your text summary</h4>
-            <p>{text.split(" ").length} words , {text.length} characters</p>
+            <p>{text.split(" ").length-1} words , {text.length} characters</p>
             <p> {(text.split(" ").length)*0.008} minutes to read</p>
             <h3> Preview </h3>
             <p>{text===''?"Enter text to preview here.":text}</p>
@@ -53,7 +54,7 @@ function Textform(props) {
         <div>
 
         </div>
-        
+        </div>
      </form>
     </div>
   )
